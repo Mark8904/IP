@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Serveo Public URL</title>
+</head>
+<body>
+    <h1>Flask Serveo Public URL Generator</h1>
+    <form method="POST">
+        <label for="localhost_url">Enter Localhost URL:</label><br>
+        <input type="text" id="localhost_url" name="localhost_url" placeholder="http://127.0.0.1:5000" required><br><br>
+        <input type="submit" value="Generate Public URL">
+    </form>
+    
+    {% if public_url %}
+        <h2>Public URL:</h2>
+        <p><a href="{{ public_url }}" target="_blank">{{ public_url }}</a></p>
+    {% elif error %}
+        <h2>Error:</h2>
+        <p>{{ error }}</p>
+    {% endif %}
+</body>
+</html>
